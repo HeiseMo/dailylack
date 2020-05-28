@@ -5,11 +5,11 @@ import axios from 'axios'
 
 export default class Main extends Component {
   state = {
-    message: "Write your post...",
+    message: "",
     messages: []
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.getData();
 
     //console.log("componenet did mount", this.state.specialization);
@@ -51,8 +51,9 @@ export default class Main extends Component {
           message: ""
         });
         // update state in Projects by executing getData()
-        this.props.history.push("/messages");
-        //this.props.getData();
+        //this.props.history.push("/messages");
+        //console.log(this.props.history)
+        this.getData();
       })
       .catch((err) => {
         console.log(err);
@@ -78,6 +79,7 @@ export default class Main extends Component {
             onChange={this.handleChange} 
             className="sendText" 
             type="text"
+            placeholder="Post me! Its up to you how long its up."
             id="message"
             name="message"
             form="usrform"></textarea>
