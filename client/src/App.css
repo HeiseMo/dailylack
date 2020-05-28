@@ -6,7 +6,7 @@
 .homeContainer{
   display: flex;
   justify-content: center;
-  background-color: #2b2d42;
+  background-color: #34495e;
   width: auto;
   min-height:100vh;
 }
@@ -28,13 +28,14 @@
   height: 10vh;
   width: 35vw;
   /* background-color: rgba(255, 254, 254, 0.1); */
+  margin-bottom: 2vh;
 }
 
 .option{
   width: 15vw;
   height: 5vh;
   /* background-color: rgba(255, 254, 254, 0.1); */
-  box-shadow: 0 0 3px rgba(255, 254, 254, 0.1);
+  box-shadow: 0 0 3px rgba(255, 254, 254, 0.3);
   box-shadow: white;
   display: flex;
   justify-content: space-evenly;
@@ -49,11 +50,11 @@
 .flowFeed{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: rgba(255, 254, 254, 0.1);
   width: 100%;
-  min-height: 50vh;
+  /* min-height: 50vh; */
   margin: 1vw;
 }
 
@@ -70,4 +71,35 @@
 
 .post-btn{
   width: 85%;
+}
+
+.feed-box{
+  height: 15vh;
+  width: 43vw;
+  margin: 2vh;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 254, 254, 0.1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.feed-box-left{
+  width: 8vw;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feed-box-right{
+  height: 15vh;
+  width: 35vw;
+}
+
+.feed-box-left img {
+border-radius: 50%;
+height: 10vh;
+width: 5vw;
 }

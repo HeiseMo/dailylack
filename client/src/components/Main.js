@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Feed from './Feed'
 // import { Link } from "react-router-dom";
 
 export default class Main extends Component {
@@ -21,14 +22,16 @@ export default class Main extends Component {
             <div>
               <select className="post-select" type="text">
                   <option disabled value="Any">Hours</option>
-                  <option value="6">6 Hours</option>
-                  <option value="12">12 Hours</option>
-                  <option value="24">24 Hours</option> 
+                  <option value="60">1 Minute</option>
+                  <option value="21600">6 Hours</option>
+                  <option value="43200">12 Hours</option>
+                  <option value="86400">24 Hours</option> 
               </select>
               <input type="submit" className="post-btn" value="Post"/>
             </div>
           </div>
           <div className="flowFeed">
+            <Feed/>
           </div>
         </div>
       </div>

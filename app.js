@@ -8,6 +8,11 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session       = require('express-session');
+const passport      = require('passport');
+const cors = require('cors');
+
+require('./configs/passport');
 
 
 mongoose
@@ -49,10 +54,29 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+app.use(session({
+  secret:`TheYellowWetDog`,
+  resave: true,
+  saveUninitialized: true
+}));
+
+// USE passport.initialize() and passport.session() HERE:
+app.use(passport.initialize());
+app.use(passport.session());
 
 
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000']
+}));
+ 
 const index = require('./routes/index');
 app.use('/', index);
+
+const authRoutes = require('./routes/auth-routes');
+app.use('/api', authRoutes);
+app.use('/api', require('./routes/message-routes'));
+
 
 
 module.exports = app;
