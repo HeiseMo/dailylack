@@ -7,10 +7,11 @@ const router  = express.Router();
  
 // POST route => to create a new project
 router.post('/messages', (req, res, next)=>{
- 
+ console.log("message", req.body.message)
+ console.log("user", req.body.owner)
   Message.create({
     message: req.body.message,
-    owner: req.user._id
+    owner: req.body.owner
   })
     .then(response => {
       res.json(response);
@@ -19,6 +20,15 @@ router.post('/messages', (req, res, next)=>{
       res.json(err);
     })
 });
- 
+
+router.get('/messages', (req, res, next) => {
+  Message.find()
+    .then(allMessages => {
+      res.json(allMessages);
+    })
+    .catch(err => {
+      res.json(err);
+    })
+});
  
 module.exports = router;

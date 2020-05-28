@@ -38,16 +38,16 @@ class App extends Component {
       loggedInUser: userObj
     })
   }
- 
+
   render() {
     this.fetchUser()
     if(this.state.loggedInUser){
       return (
         <div className="App">
           <Router>
-          <Navbar userInSession={this.state.loggedInUser} />
+          <Navbar setUser={this.getTheUser} userInSession={this.state.loggedInUser} />
           <Switch>
-          <Main/>
+          <Main user={this.state.loggedInUser}/>
           </Switch>
           </Router>
         </div>
@@ -60,7 +60,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
             <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
-            <Main /> 
+            <Route exact path='/logout' render={() => <Main />}/>
+            <Main/> 
             </Switch>
             </Router>
         </div>

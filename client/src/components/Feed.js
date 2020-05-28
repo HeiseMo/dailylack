@@ -1,35 +1,27 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 
-export default class Feed extends Component {
-  render() {
-    return (
-      <>
-      <div className="feed-box">
-        <div className="feed-box-left">
-          <img src="https://education.fsu.edu/wp-content/uploads/2016/09/staff-avatar-man.png" alt="avatar" />
-        </div>
-        <div className="feed-box-right">
+const Messages = (props) => {
+  return (
+    <>
+      {props.messages> 0}
 
-        </div>
-      </div>
+      {props.messages.map((singleMessage) => {
+          return (
+            <>
             <div className="feed-box">
-            <div className="feed-box-left">
-              <img src="https://education.fsu.edu/wp-content/uploads/2016/09/staff-avatar-man.png" alt="avatar" />
+              <div className="feed-box-left">
+                <img src="https://education.fsu.edu/wp-content/uploads/2016/09/staff-avatar-man.png" alt="avatar" />
+              </div>
+              <div className="feed-box-right">
+          <p>{singleMessage.message}</p>
+              </div>
             </div>
-            <div className="feed-box-right">
-    
-            </div>
-          </div>
-          <div className="feed-box">
-            <div className="feed-box-left">
-              <img src="https://education.fsu.edu/wp-content/uploads/2016/09/staff-avatar-man.png" alt="avatar" />
-            </div>
-            <div className="feed-box-right">
-    
-            </div>
-          </div>
-          </>
-    );
-  }
-}
+                </>
+          );
+        })}
+    </>
+  );
+};
+
+export default Messages;
