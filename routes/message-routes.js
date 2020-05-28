@@ -22,7 +22,7 @@ router.post('/messages', (req, res, next)=>{
 });
 
 router.get('/messages', (req, res, next) => {
-  Message.find()
+  Message.find().sort({ _id: -1 })
     .then(allMessages => {
       res.json(allMessages);
     })
