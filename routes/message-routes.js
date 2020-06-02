@@ -11,7 +11,8 @@ router.post('/messages', (req, res, next)=>{
  console.log("user", req.body.owner)
   Message.create({
     message: req.body.message,
-    owner: req.body.owner
+    owner: req.body.owner,
+    "expireAt": new Date('June 01, 2020 21:15:10'),
   })
     .then(response => {
       res.json(response);
